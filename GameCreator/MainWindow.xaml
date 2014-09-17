@@ -10,14 +10,24 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Top">
                 <Menu>
-                    <MenuItem Header="File" >
+                    <MenuItem Header="Game" >
+                        <MenuItem Header="New" />
                         <MenuItem Header="Open" />
                         <MenuItem Header="Save" />
                         <MenuItem Header="Close" />
                     </MenuItem>
-                    <MenuItem Header="Edit" />
+                    <MenuItem Header="Add" >
+                        <MenuItem Header="Class" />
+                        <MenuItem Header="Object" />
+                        <MenuItem Header="Image" />
+                        <MenuItem Header="Stage" />
+                    </MenuItem>
                     <MenuItem Header="View" />
                     <MenuItem Header="Extras" />
+                    <MenuItem Header="Help">
+                        <MenuItem Header="Help" />
+                        <MenuItem Header="About" />
+                    </MenuItem>
                 </Menu>
                 <ToolBar>
                     <Button>
@@ -34,10 +44,13 @@
                     <TreeViewItem Header="Class2" />
                     <TreeViewItem Header="Class3" />
                 </TreeViewItem>
-                <TreeViewItem Header="Objekte" >
+                <TreeViewItem Header="Objects" >
                     <TreeViewItem Header="Hund" />
                     <TreeViewItem Header="Katze" />
                     <TreeViewItem Header="Clown" />
+                </TreeViewItem>
+                <TreeViewItem Header="Images" >
+                	<TreeViewItem Header="HundBild" />
                 </TreeViewItem>
             </TreeView>
             <WebBrowser Source="http://google.com" />
