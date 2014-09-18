@@ -72,6 +72,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Level.vb" />
+    <Compile Include="Models\Object.vb" />
+    <Compile Include="Models\Image.vb" />
+    <Compile Include="Models\Class.vb" />
     <Compile Include="ViewModelBase\PropertyChangedBase.vb" />
     <Compile Include="ViewModelBase\RelayCommand.vb" />
     <Compile Include="ViewModels\MainViewModel.vb" />
@@ -150,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\Converter\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>

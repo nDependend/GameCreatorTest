@@ -1,11 +1,13 @@
-﻿<Controls:MetroWindow x:Class="WpfApplication.MainWindow"
+﻿<Controls:MetroWindow x:Class="MainWindow" x:Name="window"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:local="clr-namespace:GameCreator"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       Title=""
                       Height="600"
                       Width="800"
-                      GlowBrush="{DynamicResource AccentColorBrush}">
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      DataContext="{x:Static local:MainViewModel.Instance}">
     <Grid>
         <DockPanel>
             <StackPanel DockPanel.Dock="Top">
@@ -17,10 +19,10 @@
                         <MenuItem Header="Close" />
                     </MenuItem>
                     <MenuItem Header="Add" >
-                        <MenuItem Header="Class" />
-                        <MenuItem Header="Object" />
-                        <MenuItem Header="Image" />
-                        <MenuItem Header="Stage" />
+                        <MenuItem Header="Class" Command="{Binding ElementName=window,Path=AddItem}" CommandParameter="Class" />
+                        <MenuItem Header="Image" Command="{Binding ElementName=window,Path=AddItem}" CommandParameter="Image" />
+                        <MenuItem Header="Object" Command="{Binding ElementName=window,Path=AddItem}" CommandParameter="Object" />
+                        <MenuItem Header="Level" Command="{Binding ElementName=window,Path=AddItem}" CommandParameter="Level" />
                     </MenuItem>
                     <MenuItem Header="View" />
                     <MenuItem Header="Extras" />
@@ -39,21 +41,12 @@
                 </ToolBar>
             </StackPanel>
             <TreeView DockPanel.Dock="Left" Width="150" HorizontalAlignment="Left">
-                <TreeViewItem Header="Classes" >
-                    <TreeViewItem Header="Class1" />
-                    <TreeViewItem Header="Class2" />
-                    <TreeViewItem Header="Class3" />
-                </TreeViewItem>
-                <TreeViewItem Header="Objects" >
-                    <TreeViewItem Header="Hund" />
-                    <TreeViewItem Header="Katze" />
-                    <TreeViewItem Header="Clown" />
-                </TreeViewItem>
-                <TreeViewItem Header="Images" >
-                	<TreeViewItem Header="HundBild" />
-                </TreeViewItem>
+                <TreeViewItem Header="Classes" ItemsSource="{Binding Path=Classes}" DisplayMemberPath="Name" />
+                <TreeViewItem Header="Images" ItemsSource="{Binding Path=Images}" DisplayMemberPath="Name" />
+                <TreeViewItem Header="Objects" ItemsSource="{Binding Path=Objects}" DisplayMemberPath="Name" />
+                <TreeViewItem Header="Levels" ItemsSource="{Binding Path=Levels}" DisplayMemberPath="Name" />
             </TreeView>
-            <WebBrowser Source="http://google.com" />
+            <Rectangle Fill="Green"/>
         </DockPanel>
     </Grid>
 </Controls:MetroWindow>
